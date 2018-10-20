@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/questions")
@@ -26,5 +27,12 @@ public class QuestionController {
   public @ResponseBody Iterable<Question> getAllQuestions2() {
     // This returns a JSON or XML with the users
     return questionRepository.findAll();
+  }
+
+  @GetMapping(path="/{id}")
+  public @ResponseBody
+  Optional<Question> getQuestionByID(@PathVariable("id") Integer id) {
+    // This returns a JSON or XML with the users
+    return questionRepository.findById(id);
   }
 }

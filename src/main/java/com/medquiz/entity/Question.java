@@ -21,10 +21,5 @@ public class Question {
   @GeneratedValue(strategy= GenerationType.AUTO)
   private int id;
   private String text;
-  //private String answer1;
-  //private String answer2;
-  //private String answer3;
-  //private String answer4;
-  //private ArrayList<Answer> answers;
-  //private int correctAnswer;
+
 }

@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `answers`
+-- Table structure for table `answer`
 --
 
-DROP TABLE IF EXISTS `answers`;
+DROP TABLE IF EXISTS `answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `answers` (
+CREATE TABLE `answer` (
   `id` int(11) NOT NULL,
   `text` varchar(100) DEFAULT NULL,
-  `questionId` int(11) DEFAULT NULL,
-  `isCorrect` tinyint(1) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  `is_correct` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `questionId` (`questionId`),
-  CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `question` (`id`)
+  KEY `answer_ibfk_1` (`question_id`),
+  CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `answers`
+-- Dumping data for table `answer`
 --
 
-LOCK TABLES `answers` WRITE;
-/*!40000 ALTER TABLE `answers` DISABLE KEYS */;
-INSERT INTO `answers` VALUES (2,'30',1,0),(3,'36,6',1,1),(4,'40',1,0),(5,'42',1,0);
-/*!40000 ALTER TABLE `answers` ENABLE KEYS */;
+LOCK TABLES `answer` WRITE;
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+INSERT INTO `answer` VALUES (2,'30',1,0),(3,'36,6',1,1),(4,'40',1,0),(5,'42',1,0);
+/*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-20 11:36:04
+-- Dump completed on 2018-10-20 19:43:14
