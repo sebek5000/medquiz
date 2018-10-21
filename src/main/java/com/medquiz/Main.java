@@ -1,6 +1,9 @@
 /**
  * https://www.youtube.com/watch?v=Ke7Tr4RgRTs
  * 19:54
+ * Angular:
+ * https://developer.okta.com/blog/2017/12/04/basic-crud-angular-and-spring-boot
+ *
  */
 package com.medquiz;
 import org.springframework.boot.SpringApplication;

@@ -23,6 +23,7 @@ public class QuestionController {
     return this.questionService.getAllQuestions();
   }
 
+  @CrossOrigin(origins = "http://localhost:4200")
   @GetMapping(path="/all")
   public @ResponseBody Iterable<Question> getAllQuestions2() {
     // This returns a JSON or XML with the users
