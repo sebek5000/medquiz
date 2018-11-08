@@ -20,21 +20,15 @@ public class UserController {
   @Autowired
   private UserRepository userRepository;
 
-  @CrossOrigin
-  @RequestMapping("/login")
+    @RequestMapping("/login")
   public boolean login(@RequestBody User user) {
     User userInDatabase = userRepository.findByUsername(user.getUsername());
     return user.getPassword().equals(userInDatabase.getPassword());
   }
-
-  @CrossOrigin
   @RequestMapping("/register")
   public void register(@RequestBody User user) {
-    System.out.println(user.getPassword() + " , " + user.getUsername());
     userRepository.save(user);
-    //userRepository.addUser(user);
   }
-  @CrossOrigin
   @RequestMapping("/user")
   public Principal user(HttpServletRequest request) {
     String authToken = request.getHeader("Authorization").substring("Basic".length()).trim();
