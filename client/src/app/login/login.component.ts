@@ -21,7 +21,9 @@ export class LoginComponent implements OnInit {
 
 
     login() {
-        let url = 'http://localhost:8082/auth/login';
+        //let url = 'http://localhost:8082/auth/login';
+        //let url = 'http://192.168.0.17:8082/auth/login';
+        let url = 'http://10.182.240.160:8082/auth/login';//eduroam
         let result = this.http.post(url, {
             username: this.model.username,
             password: this.model.password
@@ -37,18 +39,15 @@ export class LoginComponent implements OnInit {
     }
 
     register() {
-        let url = 'http://localhost:8082/auth/register';
+        //let url = 'http://localhost:8082/auth/register';
+        //let url = 'http://192.168.0.17:8082/auth/register';
+        let url = 'http://10.182.240.160:8082/auth/register';//eduroam
         let result = this.http.post(url, {
             username: this.model.username,
             password: this.model.password
         }).map(res => res.json()).subscribe(isValid => {
             
-            if (isValid) {
-                sessionStorage.setItem('token', btoa(this.model.username + ':' + this.model.password));
-                this.router.navigate(['']);
-            } else {
-                alert("Authentication failed.")
-            }
+           
         });
     }
 
