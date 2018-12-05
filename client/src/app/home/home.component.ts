@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -11,7 +12,9 @@ export class HomeComponent implements OnInit {
 
     userName: string;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http,
+        private route: ActivatedRoute,
+        private router: Router) { }
 
     ngOnInit() {
         let url = 'http://localhost:8020/auth/user';
@@ -34,5 +37,8 @@ export class HomeComponent implements OnInit {
 
     logout() {
         sessionStorage.setItem('token', '');
+    }
+    startQuiz() {
+        this.router.navigate(['question-list']);
     }
 }

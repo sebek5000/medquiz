@@ -10,7 +10,7 @@ export class QuestionService {
   }
 
   getAll(): Observable<any> {
-    return this.http.get('//localhost:8010/questions/all');
+    return this.http.get('http://localhost:8020/auth/questions/all');
   }
 
 }

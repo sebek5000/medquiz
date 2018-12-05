@@ -20,22 +20,26 @@ public class AnswerController {
     private AnswerRepository answerRepository;
 
   @RequestMapping(method = RequestMethod.GET)
-  public Collection<Answer> getAllQuestions(){
+  public Collection<Answer> getAllAnswers(){
     return this.answerService.getAllAnswer();
   }
 
+  @CrossOrigin(origins = "http://localhost:4200")
   @GetMapping(path="/all")
   public @ResponseBody
   Iterable<Answer> getAllAnswers2() {
-    // This returns a JSON or XML with the users
     return answerRepository.findAll();
   }
 
   @GetMapping(path="/{id}")
   public @ResponseBody
   Optional<Answer> getAnswerByID(@PathVariable("id") Integer id) {
-    // This returns a JSON or XML with the users
     return answerRepository.findById(id);
+  }
+
+  @GetMapping(path="/{id}/question")
+  public @ResponseBody Iterable<Answer> getAllAnswersForQuestion (@PathVariable("id") Integer id){
+    return answerRepository.findByQuestionId(id);
   }
 
 }
