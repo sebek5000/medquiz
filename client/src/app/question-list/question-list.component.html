@@ -5,10 +5,18 @@
       <mat-list-item *ngFor="let question of questions">
         
         <h3 mat-line>{{question.text}}</h3>
+        <button (click)="checkAnswer(question.answers[0].isCorrect, question.id)">{{question.answers[0].text}}</button>
+        <button (click)="checkAnswer(question.answers[1].isCorrect, question.id)">{{question.answers[1].text}}</button>
+        <button (click)="checkAnswer(question.answers[2].isCorrect, question.id)">{{question.answers[2].text}}</button>
+        <button (click)="checkAnswer(question.answers[3].isCorrect, question.id)">{{question.answers[3].text}}</button>
+        <div>Points: {{question.points}}</div>
       </mat-list-item>
+      <div>Suma zle liczona ale to nieważne ;/ bo ona tak naprawdę jest dobrze liczona, tylko źle czytana: {{suma}}</div>
     </mat-list>
+    
   </mat-card-content>
-  <button [routerLink]="['/login']" (click)="endQuiz()" class="btn btn-primary" >Zakończ</button>
+  
+  <button (click)="endQuiz()" class="btn btn-primary" >Zakończ</button>
 </mat-card>
 
 

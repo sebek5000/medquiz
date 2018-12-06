@@ -18,12 +18,31 @@ USE `medquiz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping events for database 'medquiz'
+-- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
--- Dumping routines for database 'medquiz'
+-- Dumping data for table `user`
 --
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'user1','test'),(2,'Mariola','mariola'),(5,'user2','pass'),(6,'Henkryk','henryk'),(8,'Zbigniew','zbyszek'),(11,'sebek','sebek'),(12,'Gabriela','gabriela'),(13,'Hubert','hubert'),(15,'Cecylia','cylia'),(16,'nowy','new'),(17,'user50','test'),(18,NULL,NULL),(19,'politechnika','politechnika'),(20,'cisowianka','jestmokra'),(26,NULL,NULL),(27,'Kunegunda','bardzotrudnehaslo'),(30,NULL,NULL),(31,'madzia','abc'),(34,NULL,NULL);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -34,4 +53,4 @@ USE `medquiz`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-06 19:35:52
+-- Dump completed on 2018-12-06 19:35:51

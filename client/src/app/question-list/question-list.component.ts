@@ -11,17 +11,38 @@ import { OnInit } from '@angular/core';
 export class QuestionListComponent implements OnInit {
 
   questions: Array<any>;
+  suma: number;
   constructor(private questionService: QuestionService,
     private route: ActivatedRoute,
         private router: Router) { }
 
   ngOnInit() {
+    this.suma = 0;
+    let questionServiceInLoop = this.questionService;
     this.questionService.getAll().subscribe(data => {
       this.questions = data;
+      this.questions.forEach(function (value) {
+        questionServiceInLoop.getAnswersForQuestion(value.id).subscribe(data =>{
+       value.answers = data;
+       value.points = -1;
+       console.log(data);
+      });
+      });
+      console.log(this.questions);
     });
-
 }
-endQuiz(){
+
+checkAnswer(isCorrect, questionId) {
+  if (this.questions[questionId].points === -1 ) {
+    this.questions[questionId].points = isCorrect;
+    if (isCorrect) {
+      this.suma = this.suma + 1;
+  }}
+  console.log(this.questions[questionId].points);
+  console.log(this.suma);
+}
+
+endQuiz() {
   this.router.navigate(['']);
 }
 }

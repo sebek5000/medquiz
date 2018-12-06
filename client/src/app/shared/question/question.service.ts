@@ -13,4 +13,8 @@ export class QuestionService {
     return this.http.get('http://localhost:8020/auth/questions/all');
   }
 
+  getAnswersForQuestion(id): Observable<any> {
+    return this.http.get('http://localhost:8020/auth/answers/' + id + '/question' );
+  }
+
 }
