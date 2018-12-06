@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `medquiz` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE `medquiz`;
 -- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: medquiz
+-- Host: localhost    Database: medquiz
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -27,11 +25,11 @@ DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
   `id` int(11) NOT NULL,
   `text` varchar(1000) DEFAULT NULL,
-  `question_id` int(11) DEFAULT NULL,
-  `is_correct` tinyint(1) DEFAULT NULL,
+  `questionId` int(11) DEFAULT NULL,
+  `isCorrect` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `questionId` (`question_id`),
-  CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
+  KEY `questionId` (`questionId`),
+  CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`questionId`) REFERENCES `question` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-06 19:35:49
+-- Dump completed on 2018-12-06 22:09:04
