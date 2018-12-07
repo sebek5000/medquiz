@@ -33,8 +33,8 @@ export class QuestionListComponent implements OnInit {
 }
 
 checkAnswer(isCorrect, questionId) {
-  if (this.questions[questionId].points === -1 ) {
-    this.questions[questionId].points = isCorrect;
+  if (this.questions[questionId-1].points === -1 ) {
+    this.questions[questionId-1].points = isCorrect;
     if (isCorrect) {
       this.suma = this.suma + 1;
   }}
