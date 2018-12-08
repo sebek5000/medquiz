@@ -28,4 +28,9 @@ public class ChallengeController {
   Optional<Challenge> getChallengeByID(@PathVariable("id") Integer id) {
     return challengeRepository.findById(id);
   }
+
+  @PostMapping(path="/add", consumes = "application/json", produces = "application/json")
+  public void createNewChallenge(@RequestBody Challenge challenge){
+  challengeRepository.save(challenge);
+  }
 }

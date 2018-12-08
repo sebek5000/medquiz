@@ -43,6 +43,13 @@ checkAnswer(isCorrect, questionId) {
 }
 
 endQuiz() {
+
+  this.questionService.getLoggedUserId().subscribe(data =>{
+ 
+    this.questionService.postNewChallenge(data.id, this.suma);
+  });
+
+  
   this.router.navigate(['']);
 }
 }

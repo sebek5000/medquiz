@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from '../shared/question/question.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import {Sort} from '@angular/material';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -11,12 +13,26 @@ import 'rxjs/add/operator/map'
 export class HomeComponent implements OnInit {
 
     userName: string;
-
-    constructor(private http: Http,
+    challenges: Array<any>;
+    sortedData: Array<any>;
+    constructor(
+        private questionService: QuestionService,
+        private http: Http,
         private route: ActivatedRoute,
         private router: Router) { }
 
     ngOnInit() {
+        let questionServiceInLoop = this.questionService; 
+        this.questionService.getAllChallenges().subscribe(data=>{
+            this.challenges = data;
+            this.challenges.forEach(function (value) {
+               console.log(value);
+                questionServiceInLoop.getUserById(value.userId).subscribe(data2=>{
+                    value.username  = data2.username;
+                });
+
+              });
+              });
         let url = 'http://localhost:8020/auth/user';
         //let url = 'http://192.168.0.17:8020/auth/user';
         //let url = 'http://10.182.240.160:8020/auth/user';//eduroam
@@ -33,6 +49,25 @@ export class HomeComponent implements OnInit {
         ).subscribe(principal => {
             this.userName = principal.name;
         });
+
+        this.sortedData = this.challenges;
+     
+    }
+
+    sortData(sort: Sort) {
+        const data = this.challenges;
+        if (!sort.active || sort.direction === '') {
+          this.sortedData = data;
+          return;
+        }
+        this.sortedData = data.sort((a, b) => {
+            const isAsc = sort.direction === 'asc';
+            switch (sort.active) {
+              case 'username': return compare(a.username, b.username, isAsc);
+              case 'points': return compare(a.points, b.points, isAsc);
+              default: return 0;
+            }
+          });
     }
 
     logout() {
@@ -42,3 +77,6 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['question-list']);
     }
 }
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }

@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
             
             if (isValid) {
                 sessionStorage.setItem('token', btoa(this.model.username + ':' + this.model.password));
+                sessionStorage.setItem('user', this.model.username);
                 this.router.navigate(['']);
             } else {
                 alert("Authentication failed.")

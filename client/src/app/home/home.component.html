@@ -4,3 +4,15 @@
 
     <button [routerLink]="['/login']" (click)="startQuiz()" class="btn btn-primary" >Rozpocznij quiz</button>
 </div>
+
+<table matSort (matSortChange)="sortData($event)" matSortActive="username" matSortDirection="asc" matSortDisableClear>
+    <tr>
+      <th mat-sort-header="username">Nazwa użytkownika</th>
+      <th mat-sort-header="points">Punkty</th>
+    </tr>
+  
+    <tr *ngFor="let challenge of challenges">
+      <td>{{challenge.username}}</td>
+      <td>{{challenge.points}}</td>
+     </tr>
+  </table>
