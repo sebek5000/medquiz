@@ -52,9 +52,10 @@ endQuiz() {
  
     this.questionService.postNewChallenge(data.id, this.suma);
   });
+  location.reload();
+  ( this.router.navigate(['']));
 
-  
-  this.router.navigate(['']);
+ 
 }
 
 
