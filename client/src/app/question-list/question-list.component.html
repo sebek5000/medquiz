@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-header>Question List:</mat-card-header>
+  <h2 class="question-header">Question List:</h2>
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let question of questions">
@@ -11,7 +11,7 @@
         
         <button class="btn-default btn-standard col" (click)="checkAnswer(question.answers[2].isCorrect, question.id)">{{question.answers[2].text}}</button>
         <button class="btn-default btn-standard col" (click)="checkAnswer(question.answers[3].isCorrect, question.id)">{{question.answers[3].text}}</button>
-        <div class="col-md-2">Points: {{question.points}}</div>
+        <!-- <div class="col-md-2">Points: {{question.points}}</div> -->
         </div>
       </mat-list-item>
       <div>Suma: {{suma}}</div>
