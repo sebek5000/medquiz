@@ -36,11 +36,10 @@ checkAnswer(isCorrect, questionId) {
    if (this.questions[questionId-1].points === -1 ) {
     this.questions[questionId-1].points = isCorrect;
     if (isCorrect) {
-  event.srcElement.style = 'background-color: green';
+  event.srcElement.classList.replace('btn-default','btn-change');
       this.suma = this.suma + 1;
   } else {
-  event.srcElement.style = 'background-color: red';
-
+  event.srcElement.classList.replace('btn-default','btn-wrong');
   }}
   console.log(this.questions[questionId].points);
   console.log(this.suma);

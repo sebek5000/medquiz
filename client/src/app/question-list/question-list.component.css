@@ -1,0 +1,48 @@
+
+.btn-default:hover
+{
+    background-color: #00FFFF;
+}
+
+.btn-standard
+{
+    border-radius: 25px;
+    border-width: 0;
+    padding: 5;
+    width: 300px;
+    height: 60px;
+    margin: 10px;
+    transition: 0.6s;
+}
+
+.btn-change
+{
+    background-color: lightgreen;
+}
+
+.btn-wrong
+{
+    background-color: red;
+}
+
+.mat-list-item:hover
+{
+    background-color: #68a0f3;
+    transition: 0.6s;
+}
+
+.mat-list-item
+{
+    height: 250px !important;
+}
+
+.mat-card
+{
+    padding: 0;
+    background-color: #170964;
+}
+
+.mat-card-header
+{
+    font-size: 45px;
+}
