@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://10.182.19.63:4200")
 @RestController
 @RequestMapping("/answers")
 public class AnswerController {
@@ -18,24 +18,26 @@ public class AnswerController {
     private AnswerService answerService;
     @Autowired
     private AnswerRepository answerRepository;
-
+  @CrossOrigin
   @RequestMapping(method = RequestMethod.GET)
   public Collection<Answer> getAllAnswers(){
     return this.answerService.getAllAnswer();
   }
 
-  @CrossOrigin(origins = "http://localhost:4200")
+
   @GetMapping(path="/all")
   public @ResponseBody
   Iterable<Answer> getAllAnswers2() {
     return answerRepository.findAll();
   }
 
+
   @GetMapping(path="/{id}")
   public @ResponseBody
   Optional<Answer> getAnswerByID(@PathVariable("id") Integer id) {
     return answerRepository.findById(id);
   }
+
 
   @GetMapping(path="/{id}/question")
   public @ResponseBody Iterable<Answer> getAllAnswersForQuestion (@PathVariable("id") Integer id){

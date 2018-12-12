@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Base64;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://10.182.19.63:4200")
 @RestController
-@CrossOrigin
+
 public class UserController {
 
   @Autowired
@@ -25,10 +25,13 @@ public class UserController {
     User userInDatabase = userRepository.findByUsername(user.getUsername());
     return user.getPassword().equals(userInDatabase.getPassword());
   }
+
   @RequestMapping("/register")
   public void register(@RequestBody User user) {
     userRepository.save(user);
   }
+
+
   @RequestMapping("/user")
   public Principal user(HttpServletRequest request) {
     String authToken = request.getHeader("Authorization").substring("Basic".length()).trim();

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://10.182.19.63:4200")
 @RequestMapping("/challenges")
 public class ChallengeController {
 
@@ -17,17 +18,20 @@ public class ChallengeController {
   @Autowired
   private ChallengeRepository challengeRepository;
 
+
   @GetMapping(path="/all")
   public @ResponseBody
   Iterable<Challenge> getAllChallenges() {
     return challengeRepository.findAll();
   }
 
+
   @GetMapping(path="/{id}")
   public @ResponseBody
   Optional<Challenge> getChallengeByID(@PathVariable("id") Integer id) {
     return challengeRepository.findById(id);
   }
+
 
   @PostMapping(path="/add", consumes = "application/json", produces = "application/json")
   public void createNewChallenge(@RequestBody Challenge challenge){

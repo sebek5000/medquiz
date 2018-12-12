@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/questions")
+@CrossOrigin(origins = "http://10.182.19.63:4200")
 public class QuestionController {
   @Autowired
   private QuestionService questionService;
@@ -23,8 +24,7 @@ public class QuestionController {
     return this.questionService.getAllQuestions();
   }
 
-  @CrossOrigin(origins = "http://localhost:4200")
-  @GetMapping(path="/all")
+    @GetMapping(path="/all")
   public @ResponseBody Iterable<Question> getAllQuestions2() {
     // This returns a JSON or XML with the users
     return questionRepository.findAll();

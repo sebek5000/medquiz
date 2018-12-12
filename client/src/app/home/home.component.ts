@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         
-        let url = 'http://localhost:8020/auth/user';
+        let url = 'http://10.182.19.63:8020/auth/user';
         //let url = 'http://192.168.0.17:8020/auth/user';
         //let url = 'http://10.182.240.160:8020/auth/user';//eduroam
            let headers:Headers = new Headers({

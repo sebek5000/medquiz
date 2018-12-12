@@ -45,6 +45,7 @@ checkAnswer(isCorrect, questionId) {
   console.log(this.suma);
 }
 
+
 endQuiz() {
 
   this.questionService.getLoggedUserId().subscribe(data =>{
@@ -61,4 +62,11 @@ endQuiz() {
 
 }
 
+// let x = document.getElementsByClassName('mat-list-item-content');
+
+// for(let line in x)
+// {
+//   x[line].setAttribute("style","display: inline-flex");
+// }
+// to powinnod dzialac, dziala w konsoli, ale jeszcze nie tu :)
 
