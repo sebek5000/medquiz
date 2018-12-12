@@ -1,18 +1,19 @@
+<body style="background-color: #66CCCC;">
 <div class="col-md-6 col-md-offset-3">
     <h1>Hi {{userName}}!</h1>
-    <p><a [routerLink]="['/login']" (click) ="logout()">Logout</a></p>
-
-    <button [routerLink]="['/login']" (click)="startQuiz()" class="btn btn-primary" >Rozpocznij quiz</button>
+    <button [routerLink]="['/login']" (click) ="logout()" class="btn-save">Logout</button>
+    <br>
+    <button [routerLink]="['/login']" (click)="startQuiz()" class="btn-save" >Rozpocznij quiz</button>
 </div>
-
+<br>
 <table matSort (matSortChange)="sortData($event)" matSortActive="username" matSortDirection="asc" matSortDisableClear>
     <tr>
-      <th mat-sort-header="username">Nazwa użytkownika</th>
-      <th mat-sort-header="points">Punkty</th>
+      <td mat-sort-header="username">Nazwa użytkownika</td>
+      <td mat-sort-header="points">Punkty</td>
     </tr>
-  
     <tr *ngFor="let challenge of challenges">
       <td>{{challenge.username}}</td>
       <td>{{challenge.points}}</td>
      </tr>
   </table>
+</body>

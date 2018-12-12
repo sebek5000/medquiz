@@ -39,10 +39,21 @@
 .mat-card
 {
     padding: 0;
-    background-color: #170964;
+    background-color: #66CCCC;
 }
 
 .mat-card-header
 {
     font-size: 45px;
+}
+
+.btn-end
+{
+    border-radius: 25px;
+    border-width: 0;
+    padding: 5;
+    width: 100px;
+    height: 20px;
+    margin: 5px;
+    transition: 0.6s;
 }
