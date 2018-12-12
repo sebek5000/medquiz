@@ -29,3 +29,8 @@ body {
     margin: 5px;
     transition: 0.6s;
 }
+
+.btn-save:hover
+{
+   background-color: #00FFFF;
+}
