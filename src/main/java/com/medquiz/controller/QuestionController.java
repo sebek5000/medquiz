@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/questions")
-@CrossOrigin(origins = "http://10.182.19.63:4200")
+@CrossOrigin
 public class QuestionController {
   @Autowired
   private QuestionService questionService;

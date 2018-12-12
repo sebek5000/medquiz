@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Base64;
 import java.util.Optional;
-@CrossOrigin(origins = "http://10.182.19.63:4200")
+@CrossOrigin
 @RestController
 
 public class UserController {
